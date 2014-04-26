@@ -16,47 +16,29 @@
 			<url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases</url>
 		</repository>
 	</repositories>
-	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-digester3</artifactId>
-		<version>3.2</version>
-		<classifier>with-deps</classifier>
-	</dependency>
-	<dependency>
-		<groupId>javax.media</groupId>
-		<artifactId>jai_core</artifactId>
-		<version>1.1.2_01</version>
-	</dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>3.2</version>
+			<classifier>with-deps</classifier>
+		</dependency>
 
-	<dependency>
-		<groupId>javax.media</groupId>
-		<artifactId>jai_core</artifactId>
-		<version>1.1.2_01</version>
-	</dependency>
-	<dependency>
-		<groupId>javax.media</groupId>
-		<artifactId>jai_codec</artifactId>
-		<version>1.1.2_01</version>
-	</dependency>
-	<dependency>
-		<groupId>org.geotiff</groupId>
-		<artifactId>geotiff-jai</artifactId>
-		<version>1.0</version>
-	</dependency>
-	<dependency>
-		<groupId>org.jfree</groupId>
-		<artifactId>jfreechart</artifactId>
-		<version>1.0.17</version>
-	</dependency>
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.17</version>
+		</dependency>
 
-	<dependency>
-		<groupId>de.micromata.jak</groupId>
-		<artifactId>JavaApiforKML</artifactId>
-		<version>2.2.0-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-		<groupId>edu.ucar</groupId>
-		<artifactId>netcdf</artifactId>
-		<version>4.3.19</version>
-	</dependency>
+		<dependency>
+			<groupId>de.micromata.jak</groupId>
+			<artifactId>JavaAPIforKml</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.ucar</groupId>
+			<artifactId>netcdf</artifactId>
+			<version>4.3.19</version>
+		</dependency>
+	</dependencies>
 </project>
