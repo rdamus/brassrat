@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.digester3.Digester;
@@ -142,11 +143,26 @@ public class TestVccDigester {
 		kml.marshal(kmlPath.toFile());
 	}
 
+	void filter(List<Trackpoint> points){
+		ArrayList<Trackpoint> pointsToRemove = new ArrayList<>();
+		for (Trackpoint t : points) {
+			if( t.getSpeed() == 0f ){
+				pointsToRemove.add( t );
+			}
+		}
+		System.out.println("removing " + pointsToRemove.size());
+		points.removeAll( pointsToRemove );
+	}
+	
 	void writeKmlColoredLineStringPath(VelocitekControlCenter vcc) throws FileNotFoundException {
+		List<Trackpoint> points = vcc.getTrack().getTrackPoints().getTrackPoints();
+		filter( points );
+		writeKml( points );
+	}
+	
+	void writeKml(List<Trackpoint> points) throws FileNotFoundException {
 		Kml kml = KmlFactory.createKml();
 		Document d = kml.createAndSetDocument();
-		
-		List<Trackpoint> points = vcc.getTrack().getTrackPoints().getTrackPoints();
 		for (int i = 1; i < points.size(); i++){
 			String name = "trackpoint_" + i;
 			Trackpoint start = points.get(i-1);
