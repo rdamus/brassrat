@@ -1,4 +1,4 @@
-package com.brassratdev.app;
+package com.brassratdev.sim;
 
 /**
  * interface to running a simulated portion of the system.
