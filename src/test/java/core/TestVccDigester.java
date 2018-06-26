@@ -1,9 +1,6 @@
 package core;
 
-import static org.junit.Assert.*;
-
 import java.awt.Color;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -23,7 +20,6 @@ import org.xml.sax.SAXException;
 
 import com.brassratdev.data.vcc.CapturedTrack;
 import com.brassratdev.data.vcc.DeviceInfo;
-import com.brassratdev.data.vcc.MinLatitude;
 import com.brassratdev.data.vcc.Trackpoint;
 import com.brassratdev.data.vcc.Trackpoints;
 import com.brassratdev.data.vcc.VelocitekControlCenter;
@@ -33,11 +29,7 @@ import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
 import de.micromata.opengis.kml.v_2_2_0.LineString;
-import de.micromata.opengis.kml.v_2_2_0.LineStyle;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
-import de.micromata.opengis.kml.v_2_2_0.Style;
-import de.micromata.opengis.kml.v_2_2_0.StyleMap;
-import de.micromata.opengis.kml.v_2_2_0.StyleState;
 
 public class TestVccDigester {
 	static Logger logger = Logger.getLogger(TestVccDigester.class);
