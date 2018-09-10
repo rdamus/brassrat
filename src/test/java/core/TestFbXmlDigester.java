@@ -3,16 +3,14 @@ package core;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.brassratdev.data.fb.FbResponse;
@@ -21,7 +19,7 @@ import com.brassratdev.io.fb.FbXmlDigester;
 
 
 public class TestFbXmlDigester {
-	static Logger logger = Logger.getLogger(TestFbXmlDigester.class);
+	private static final Logger log = LogManager.getLogger(TestFbXmlDigester.class);
 	FbXmlDigester digester;
 	Path path;
 	

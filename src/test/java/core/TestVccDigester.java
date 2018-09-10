@@ -11,7 +11,8 @@ import java.util.List;
 import org.apache.commons.digester3.Digester;
 import org.apache.commons.digester3.binder.AbstractRulesModule;
 import org.apache.commons.digester3.binder.DigesterLoader;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -24,6 +25,7 @@ import com.brassratdev.data.vcc.Trackpoint;
 import com.brassratdev.data.vcc.Trackpoints;
 import com.brassratdev.data.vcc.VelocitekControlCenter;
 import com.brassratdev.io.vcc.VccDigester;
+import com.brassratdev.net.JsonHttpService;
 
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
@@ -32,7 +34,7 @@ import de.micromata.opengis.kml.v_2_2_0.LineString;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
 public class TestVccDigester {
-	static Logger logger = Logger.getLogger(TestVccDigester.class);
+	private static final Logger log = LogManager.getLogger(TestVccDigester.class);
 	VccDigester digester;
 	Path path;
 	Path kmlPath;
@@ -129,7 +131,7 @@ public class TestVccDigester {
 		LineString l = p.createAndSetLineString();
 		int kCnt = 0;
 		for (Trackpoint t : vcc.getTrack().getTrackPoints().getTrackPoints()) {
-			logger.info("writing trackpoint " + ++kCnt);
+			log.info("writing trackpoint " + ++kCnt);
 			l.addToCoordinates(t.getLongitude(), t.getLatitude());
 		}
 		kml.marshal(kmlPath.toFile());
