@@ -26,17 +26,9 @@ public class NetworkServer<T extends HttpHandler> {
 	private static final Logger log = LogManager.getLogger(NetworkServer.class);
 
 
-	public NetworkServer(int port) {
-		address = new InetSocketAddress(port);
-		handler = createHandler();
-	}
-
-	/**
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	protected T createHandler() {
-		return (T) new JsonHandler();
+	public NetworkServer(int port, T handler) {
+		this.address = new InetSocketAddress(port);
+		this.handler = handler;
 	}
 
 	public T getHandler() {
@@ -78,8 +70,8 @@ public class NetworkServer<T extends HttpHandler> {
 
 	public void stop() {
 		if (isRunning())
-			server.stop(2);// wait 2s to stop all connections
-		logMessage("NetworkLinkServer stopped listening on " + getAddress());
+			server.stop(1);
+		logMessage("Server stopped listening on " + getAddress());
 		setRunning(false);
 	}
 
