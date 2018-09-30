@@ -2,4 +2,5 @@
 .classpath
 *.log
 *.class
-.settings*/
+.settings/
+
